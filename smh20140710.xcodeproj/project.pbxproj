@@ -22,6 +22,12 @@
 		A42E47D7196D9E8900787C52 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47BB196D9E8900787C52 /* CoreData.framework */; };
 		A42E47DF196D9E8900787C52 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A42E47DD196D9E8900787C52 /* InfoPlist.strings */; };
 		A42E47E1196D9E8900787C52 /* smh20140710Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E47E0196D9E8900787C52 /* smh20140710Tests.m */; };
+		A42E47EB196D9F3B00787C52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42E47EA196D9F3B00787C52 /* README.md */; };
+		A42E47F1196D9FDB00787C52 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A42E47F0196D9FDB00787C52 /* Storyboard.storyboard */; };
+		A42E47F4196DA23D00787C52 /* SMHContactsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E47F3196DA23D00787C52 /* SMHContactsTVC.m */; };
+		A42E47FA196DA66C00787C52 /* SMHContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A42E47F9196DA66C00787C52 /* SMHContactCell.m */; };
+		A4DB7B8A196DD5DF002AA89A /* SMHDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DB7B89196DD5DF002AA89A /* SMHDataController.m */; };
+		A4DB7B8D196DDB99002AA89A /* SMHContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DB7B8C196DDB99002AA89A /* SMHContacts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,16 @@
 		A42E47DC196D9E8900787C52 /* smh20140710Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "smh20140710Tests-Info.plist"; sourceTree = "<group>"; };
 		A42E47DE196D9E8900787C52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A42E47E0196D9E8900787C52 /* smh20140710Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smh20140710Tests.m; sourceTree = "<group>"; };
+		A42E47EA196D9F3B00787C52 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A42E47F0196D9FDB00787C52 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A42E47F2196DA23D00787C52 /* SMHContactsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHContactsTVC.h; sourceTree = "<group>"; };
+		A42E47F3196DA23D00787C52 /* SMHContactsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHContactsTVC.m; sourceTree = "<group>"; };
+		A42E47F8196DA66C00787C52 /* SMHContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHContactCell.h; sourceTree = "<group>"; };
+		A42E47F9196DA66C00787C52 /* SMHContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHContactCell.m; sourceTree = "<group>"; };
+		A4DB7B88196DD5DF002AA89A /* SMHDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHDataController.h; sourceTree = "<group>"; };
+		A4DB7B89196DD5DF002AA89A /* SMHDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHDataController.m; sourceTree = "<group>"; };
+		A4DB7B8B196DDB99002AA89A /* SMHContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHContacts.h; sourceTree = "<group>"; };
+		A4DB7B8C196DDB99002AA89A /* SMHContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHContacts.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +100,7 @@
 		A42E47A9196D9E8800787C52 = {
 			isa = PBXGroup;
 			children = (
+				A42E47EA196D9F3B00787C52 /* README.md */,
 				A42E47BD196D9E8900787C52 /* smh20140710 */,
 				A42E47DA196D9E8900787C52 /* smh20140710Tests */,
 				A42E47B4196D9E8900787C52 /* Frameworks */,
@@ -115,10 +132,10 @@
 		A42E47BD196D9E8900787C52 /* smh20140710 */ = {
 			isa = PBXGroup;
 			children = (
-				A42E47C6196D9E8900787C52 /* SMHAppDelegate.h */,
-				A42E47C7196D9E8900787C52 /* SMHAppDelegate.m */,
-				A42E47CC196D9E8900787C52 /* Images.xcassets */,
-				A42E47C9196D9E8900787C52 /* smh20140710.xcdatamodeld */,
+				A42E47EF196D9FB800787C52 /* Model */,
+				A42E47EE196D9FAD00787C52 /* View */,
+				A42E47EC196D9F6F00787C52 /* Controller */,
+				A4DB7B81196DC073002AA89A /* Web */,
 				A42E47BE196D9E8900787C52 /* Supporting Files */,
 			);
 			path = smh20140710;
@@ -151,6 +168,47 @@
 				A42E47DD196D9E8900787C52 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A42E47EC196D9F6F00787C52 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A42E47C6196D9E8900787C52 /* SMHAppDelegate.h */,
+				A42E47C7196D9E8900787C52 /* SMHAppDelegate.m */,
+				A42E47F2196DA23D00787C52 /* SMHContactsTVC.h */,
+				A42E47F3196DA23D00787C52 /* SMHContactsTVC.m */,
+				A42E47F8196DA66C00787C52 /* SMHContactCell.h */,
+				A42E47F9196DA66C00787C52 /* SMHContactCell.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A42E47EE196D9FAD00787C52 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A42E47CC196D9E8900787C52 /* Images.xcassets */,
+				A42E47F0196D9FDB00787C52 /* Storyboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A42E47EF196D9FB800787C52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A42E47C9196D9E8900787C52 /* smh20140710.xcdatamodeld */,
+				A4DB7B8B196DDB99002AA89A /* SMHContacts.h */,
+				A4DB7B8C196DDB99002AA89A /* SMHContacts.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A4DB7B81196DC073002AA89A /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				A4DB7B88196DD5DF002AA89A /* SMHDataController.h */,
+				A4DB7B89196DD5DF002AA89A /* SMHDataController.m */,
+			);
+			name = Web;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +287,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42E47EB196D9F3B00787C52 /* README.md in Resources */,
+				A42E47F1196D9FDB00787C52 /* Storyboard.storyboard in Resources */,
 				A42E47C2196D9E8900787C52 /* InfoPlist.strings in Resources */,
 				A42E47CD196D9E8900787C52 /* Images.xcassets in Resources */,
 			);
@@ -249,9 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42E47FA196DA66C00787C52 /* SMHContactCell.m in Sources */,
 				A42E47C4196D9E8900787C52 /* main.m in Sources */,
+				A4DB7B8A196DD5DF002AA89A /* SMHDataController.m in Sources */,
 				A42E47CB196D9E8900787C52 /* smh20140710.xcdatamodeld in Sources */,
 				A42E47C8196D9E8900787C52 /* SMHAppDelegate.m in Sources */,
+				A4DB7B8D196DDB99002AA89A /* SMHContacts.m in Sources */,
+				A42E47F4196DA23D00787C52 /* SMHContactsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +514,7 @@
 				A42E47E6196D9E8900787C52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A42E47E7196D9E8900787C52 /* Build configuration list for PBXNativeTarget "smh20140710Tests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +523,7 @@
 				A42E47E9196D9E8900787C52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
