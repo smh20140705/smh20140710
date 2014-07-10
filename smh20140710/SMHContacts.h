@@ -19,4 +19,8 @@
 @property (nonatomic, retain) NSString * pictureURL;
 @property (nonatomic, retain) NSString * notes;
 
+@property (nonatomic, strong) UIImage * picture;
+
+- (void)fetchImageWithCompletionHandler:(void(^)())completion;
+
 @end

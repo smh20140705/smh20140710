@@ -7,12 +7,21 @@
 //
 
 #import "SMHContactsTVC.h"
+#import "SMHDataController.h"
+#import "SMHContactCell.h"
+#import "SMHContactDetailsVC.h"
 
 @interface SMHContactsTVC ()
+{
+    UIView *activityIndicatorView;
+}
+
+@property (strong, nonatomic) NSArray *contacts;
 
 @end
 
 @implementation SMHContactsTVC
+@synthesize contacts;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,18 +35,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self showActivityIndicator];
+    SMHDataController *dataController = [SMHDataController sharedController];
+    [dataController fetchDataWithCompletionHandler:^void(NSArray *result){
+        contacts = result;
+        [self.tableView reloadData];
+        [self removeActivityIndicator];
+    }];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // Refresh control for pull-to-refresh
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor redColor];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [refreshControl addTarget:self action:@selector(updateTable) forControlEvents:UIControlEventValueChanged];
+    
+    self.refreshControl = refreshControl;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showActivityIndicator
+{
+    activityIndicatorView = [[UIView alloc] initWithFrame:self.view.frame];
+    [activityIndicatorView setBackgroundColor:[UIColor blackColor]];
+    [activityIndicatorView setAlpha:0.5];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((self.view.frame.size.width/2)-40, (self.view.frame.size.height/2)-40, 80, 80)];
+    [activityIndicatorView addSubview:spinner];
+    [spinner startAnimating];
+    [self.view addSubview:activityIndicatorView];
+}
+
+- (void)removeActivityIndicator
+{
+    [activityIndicatorView removeFromSuperview];
+    activityIndicatorView = nil;
+}
+
+- (void)updateTable
+{
+    SMHDataController *dataController = [SMHDataController sharedController];
+    [dataController fetchDataWithCompletionHandler:^void(NSArray *result){
+        contacts = result;
+        // Core Data order is not online order so table needs refresh.
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -49,14 +95,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return contacts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SMHContactCell" forIndexPath:indexPath];
+    SMHContactCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SMHContactCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    SMHContacts *tempContact = [contacts objectAtIndex:indexPath.row];
+    
+    // Basic cell setup w. placeholder image
+    [cell.lblFirstName setText:tempContact.firstName];
+    [cell.lblLastName setText:[tempContact.lastName uppercaseString]];
+    [cell.lblAge setText:[tempContact.age stringValue]];
+    [cell.lblSex setText:tempContact.sex];
+    
+    cell.imgPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];
+    
+    // Get the actual image if possible
+    if (tempContact.picture) {
+        cell.imgPicture.image = tempContact.picture;
+    }
+    else {
+        [tempContact fetchImageWithCompletionHandler: ^{
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }];
+    }
     
     return cell;
 }
@@ -104,15 +170,15 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    SMHContactDetailsVC *destinationVC = [segue destinationViewController];
+    SMHContacts *tempContact = [contacts objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+    
+    [destinationVC setContact:tempContact];
 }
-*/
 
 @end

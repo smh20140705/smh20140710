@@ -10,4 +10,10 @@
 
 @interface SMHContactCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgPicture;
+@property (strong, nonatomic) IBOutlet UILabel *lblFirstName;
+@property (strong, nonatomic) IBOutlet UILabel *lblLastName;
+@property (strong, nonatomic) IBOutlet UILabel *lblAge;
+@property (strong, nonatomic) IBOutlet UILabel *lblSex;
+
 @end

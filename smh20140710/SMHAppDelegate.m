@@ -16,10 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backgroundContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:nil];
     return YES;
 }
 
@@ -136,6 +133,16 @@
     }    
     
     return _persistentStoreCoordinator;
+}
+
+-(void)backgroundContextDidSave:(NSNotification *)notification
+{
+    if (![NSThread isMainThread]) {
+        [self performSelectorOnMainThread:@selector(backgroundContextDidSave:) withObject:notification waitUntilDone:NO];
+        return;
+    }
+    
+    [[self managedObjectContext] mergeChangesFromContextDidSaveNotification:notification];
 }
 
 #pragma mark - Application's Documents directory

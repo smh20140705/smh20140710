@@ -10,6 +10,7 @@
 		A422ECDA196E8AD800991717 /* SMHDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A422ECD9196E8AD800991717 /* SMHDataControllerTests.m */; };
 		A422ECDC196E9CBB00991717 /* one_contact.xml in Resources */ = {isa = PBXBuildFile; fileRef = A422ECDB196E9CBB00991717 /* one_contact.xml */; };
 		A422ECDE196E9D5C00991717 /* four_contacts.xml in Resources */ = {isa = PBXBuildFile; fileRef = A422ECDD196E9D5C00991717 /* four_contacts.xml */; };
+		A422ECE4196ED7DB00991717 /* SMHContactDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A422ECE3196ED7DB00991717 /* SMHContactDetailsVC.m */; };
 		A42E47B6196D9E8900787C52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B5196D9E8900787C52 /* Foundation.framework */; };
 		A42E47B8196D9E8900787C52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B7196D9E8900787C52 /* CoreGraphics.framework */; };
 		A42E47BA196D9E8900787C52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B9196D9E8900787C52 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 		A422ECD9196E8AD800991717 /* SMHDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHDataControllerTests.m; sourceTree = "<group>"; };
 		A422ECDB196E9CBB00991717 /* one_contact.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = one_contact.xml; sourceTree = "<group>"; };
 		A422ECDD196E9D5C00991717 /* four_contacts.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = four_contacts.xml; sourceTree = "<group>"; };
+		A422ECE2196ED7DB00991717 /* SMHContactDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHContactDetailsVC.h; sourceTree = "<group>"; };
+		A422ECE3196ED7DB00991717 /* SMHContactDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHContactDetailsVC.m; sourceTree = "<group>"; };
 		A42E47B2196D9E8900787C52 /* smh20140710.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smh20140710.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42E47B5196D9E8900787C52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A42E47B7196D9E8900787C52 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +191,8 @@
 				A42E47F3196DA23D00787C52 /* SMHContactsTVC.m */,
 				A42E47F8196DA66C00787C52 /* SMHContactCell.h */,
 				A42E47F9196DA66C00787C52 /* SMHContactCell.m */,
+				A422ECE2196ED7DB00991717 /* SMHContactDetailsVC.h */,
+				A422ECE3196ED7DB00991717 /* SMHContactDetailsVC.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				A42E47FA196DA66C00787C52 /* SMHContactCell.m in Sources */,
 				A42E47C4196D9E8900787C52 /* main.m in Sources */,
 				A4DB7B8A196DD5DF002AA89A /* SMHDataController.m in Sources */,
+				A422ECE4196ED7DB00991717 /* SMHContactDetailsVC.m in Sources */,
 				A42E47CB196D9E8900787C52 /* smh20140710.xcdatamodeld in Sources */,
 				A42E47C8196D9E8900787C52 /* SMHAppDelegate.m in Sources */,
 				A4DB7B8D196DDB99002AA89A /* SMHContacts.m in Sources */,
