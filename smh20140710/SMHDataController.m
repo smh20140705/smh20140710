@@ -168,7 +168,7 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         _workingString = nil;
     }
     else if ([elementName isEqualToString:@"lastName"]) {
-        _currentContact.lastName = [_workingString uppercaseString];
+        _currentContact.lastName = _workingString;
         _workingString = nil;
     }
     else if ([elementName isEqualToString:@"age"]) {

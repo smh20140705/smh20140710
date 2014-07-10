@@ -103,7 +103,7 @@
     
     // Basic cell setup w. placeholder image
     cell.lblFirstName.text = tempContact.firstName;
-    cell.lblLastName.text = tempContact.lastName;
+    cell.lblLastName.text = [tempContact.lastName uppercaseString];
     cell.lblAge.text = [tempContact.age stringValue];
     cell.lblSex.text = tempContact.sex;
     cell.imgPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];

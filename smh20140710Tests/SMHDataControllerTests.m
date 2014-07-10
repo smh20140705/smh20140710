@@ -54,7 +54,7 @@
         }
         
         {
-            NSString *expectedLastName = @"JOBS";
+            NSString *expectedLastName = @"Jobs";
             NSString *actualLastName = tempContact.lastName;
             XCTAssert([actualLastName isEqualToString:expectedLastName],
                       @"Incorrect contact lastName: expected: %@; got:%@",
@@ -131,7 +131,7 @@
     }
     
     {
-        NSString *expectedLastName = @"JOBS";
+        NSString *expectedLastName = @"Jobs";
         NSString *actualLastName = tempContact.lastName;
         XCTAssert([actualLastName isEqualToString:expectedLastName],
                   @"Incorrect contact lastName: expected: %@; got:%@",
@@ -197,7 +197,7 @@
     }
     
     {
-        NSString *expectedLastName = @"WOZNIAK";
+        NSString *expectedLastName = @"Wozniak";
         NSString *actualLastName = tempContact.lastName;
         XCTAssert([actualLastName isEqualToString:expectedLastName],
                   @"Incorrect contact lastName: expected: %@; got:%@",
