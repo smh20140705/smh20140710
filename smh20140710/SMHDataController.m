@@ -71,8 +71,7 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         [requestAll setEntity:[NSEntityDescription entityForName:@"SMHContacts" inManagedObjectContext:_backgroundContext]];
         [requestAll setIncludesPropertyValues:NO];
         error = nil;
-        NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll
-                                                              error:&error];
+        NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll error:&error];
         if (!error) {
             for (SMHContacts *contact in allItems) {
                 [_backgroundContext deleteObject:contact];
@@ -96,10 +95,9 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
 
 - (NSArray *)parseData:(NSData *)data
 {
-    
     _result = [[NSMutableArray alloc] init];
     _workingString = nil;
-
+    
     _parser = [[NSXMLParser alloc] initWithData:data];
     [_parser setDelegate:self];
     [_parser parse];
@@ -115,7 +113,6 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         _workingString = nil;
     }
     else if ([elementName isEqualToString:@"contact"]) {
-        NSLog(@"contact element found – create a new instance of SMHContacts class...");
         _workingString = nil;
         _currentContact = [NSEntityDescription insertNewObjectForEntityForName:@"SMHContacts"inManagedObjectContext:_backgroundContext];
     }
@@ -171,7 +168,7 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         _workingString = nil;
     }
     else if ([elementName isEqualToString:@"lastName"]) {
-        _currentContact.lastName = _workingString;
+        _currentContact.lastName = [_workingString uppercaseString];
         _workingString = nil;
     }
     else if ([elementName isEqualToString:@"age"]) {

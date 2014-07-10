@@ -50,8 +50,7 @@
                 NSError *error;
                 NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                 
-                if (data && !error)
-                {
+                if (data && !error) {
                     self.picture = [UIImage imageWithData:data];
                 }
                 

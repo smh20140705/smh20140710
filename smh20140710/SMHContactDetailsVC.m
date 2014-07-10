@@ -25,7 +25,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -35,26 +34,17 @@
     [super viewDidLoad];
     
     NSAssert(contact, @"No contact data");
-    [self.navigationItem setTitle:[NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName]];
-    [contactPicture setImage:contact.picture];
-    [contactNotes setText:contact.notes];    
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
+    contactPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];
+    if (contact.picture) {
+        contactPicture.image = contact.picture;
+    }
+    contactNotes.text = contact.notes;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

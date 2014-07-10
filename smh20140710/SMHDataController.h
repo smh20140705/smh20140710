@@ -14,7 +14,6 @@
 + (id)sharedController;
 
 - (void)fetchDataWithCompletionHandler:(void(^)(NSArray*))completion;
-
 - (NSArray *)parseData:(NSData *) data;
 
 @end
