@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A422ECDA196E8AD800991717 /* SMHDataControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A422ECD9196E8AD800991717 /* SMHDataControllerTests.m */; };
+		A422ECDC196E9CBB00991717 /* one_contact.xml in Resources */ = {isa = PBXBuildFile; fileRef = A422ECDB196E9CBB00991717 /* one_contact.xml */; };
+		A422ECDE196E9D5C00991717 /* four_contacts.xml in Resources */ = {isa = PBXBuildFile; fileRef = A422ECDD196E9D5C00991717 /* four_contacts.xml */; };
 		A42E47B6196D9E8900787C52 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B5196D9E8900787C52 /* Foundation.framework */; };
 		A42E47B8196D9E8900787C52 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B7196D9E8900787C52 /* CoreGraphics.framework */; };
 		A42E47BA196D9E8900787C52 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42E47B9196D9E8900787C52 /* UIKit.framework */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A422ECD9196E8AD800991717 /* SMHDataControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHDataControllerTests.m; sourceTree = "<group>"; };
+		A422ECDB196E9CBB00991717 /* one_contact.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = one_contact.xml; sourceTree = "<group>"; };
+		A422ECDD196E9D5C00991717 /* four_contacts.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = four_contacts.xml; sourceTree = "<group>"; };
 		A42E47B2196D9E8900787C52 /* smh20140710.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smh20140710.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42E47B5196D9E8900787C52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A42E47B7196D9E8900787C52 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				A42E47E0196D9E8900787C52 /* smh20140710Tests.m */,
+				A422ECD9196E8AD800991717 /* SMHDataControllerTests.m */,
 				A42E47DB196D9E8900787C52 /* Supporting Files */,
 			);
 			path = smh20140710Tests;
@@ -165,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				A42E47DC196D9E8900787C52 /* smh20140710Tests-Info.plist */,
+				A422ECDB196E9CBB00991717 /* one_contact.xml */,
+				A422ECDD196E9D5C00991717 /* four_contacts.xml */,
 				A42E47DD196D9E8900787C52 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -298,7 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A422ECDE196E9D5C00991717 /* four_contacts.xml in Resources */,
 				A42E47DF196D9E8900787C52 /* InfoPlist.strings in Resources */,
+				A422ECDC196E9CBB00991717 /* one_contact.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A422ECDA196E8AD800991717 /* SMHDataControllerTests.m in Sources */,
 				A42E47E1196D9E8900787C52 /* smh20140710Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

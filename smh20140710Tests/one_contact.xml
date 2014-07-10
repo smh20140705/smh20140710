@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<contacts>
+  
+  <contact>
+    <firstName>Steve</firstName>
+    <lastName>Jobs</lastName>
+    <age>56</age>
+    <sex>m</sex>
+    <picture>http://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg</picture>
+    <notes><![CDATA[Co-founder, Chairman and CEO, Apple Inc., CEO, Pixar, Co-founder and CEO, NeXT Inc.]]></notes>
+  </contact>
+  
+</contacts>

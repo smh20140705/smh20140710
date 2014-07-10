@@ -8,3 +8,6 @@ NAMES
 
 SPEC CLARIFICATIONS
 * Autolayout not used according to clarification.
+
+DESIGN DECISIONS
+* The sex of each contact is taken as a string in order to avoid having to consider in advance all of the various forms this might be specified: e.g. "m", "M", "male", "man", "boy", ... perhaps even "fellow", "fella", "geezer", etc, etc.

@@ -11,8 +11,10 @@
 
 @interface SMHDataController : NSObject
 
-+(id)sharedController;
++ (id)sharedController;
 
--(void)fetchDataWithCompletionHandler:(void(^)(NSArray*))completion;
+- (void)fetchDataWithCompletionHandler:(void(^)(NSArray*))completion;
+
+- (NSArray *)parseData:(NSData *) data;
 
 @end

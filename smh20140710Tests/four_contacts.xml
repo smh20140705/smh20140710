@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<contacts>
+  
+  <contact>
+    <firstName>Steve</firstName>
+    <lastName>Jobs</lastName>
+    <age>56</age>
+    <sex>m</sex>
+    <picture>http://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg</picture>
+    <notes><![CDATA[Co-founder, Chairman and CEO, Apple Inc., CEO, Pixar, Co-founder and CEO, NeXT Inc.]]></notes>
+  </contact>
+  
+  <contact>
+    <firstName>Daniel</firstName>
+    <lastName>Goleman</lastName>
+    <age>65</age>
+    <sex>m</sex>
+    <picture>http://www.pbs.org/moyers/journal/05152009/images/profile_pic2.jpg</picture>
+    <notes><![CDATA[Author, psychologist, and science journalist.]]></notes>
+  </contact>
+  
+  <contact>
+    <firstName>Anthony</firstName>
+    <lastName>Robbins</lastName>
+    <age>51</age>
+    <sex>m</sex>
+    <picture>http://upload.wikimedia.org/wikipedia/commons/5/5e/Tony_Robbins.jpg</picture>
+    <notes><![CDATA[American self-help author and motivational speaker]]></notes>
+  </contact>
+  
+  <contact>
+    <firstName>Steve</firstName>
+    <lastName>Wozniak</lastName>
+    <age>61</age>
+    <sex>m</sex>
+    <picture>http://upload.wikimedia.org/wikipedia/commons/f/f6/Steve_Wozniak.jpg</picture>
+    <notes><![CDATA[American computer engineer and programmer who founded Apple Computer, Co. (now Apple Inc.) with Steve Jobs and Ronald Wayne.]]></notes>
+  </contact>
+  
+</contacts>
