@@ -10,7 +10,6 @@
 
 @interface SMHContacts ()
 {
-    BOOL runOnce;
     NSOperationQueue *_queue;
 }
 
@@ -32,7 +31,6 @@
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if (self) {
-        runOnce = NO;
         _queue = [NSOperationQueue new];
     }
     
@@ -44,7 +42,7 @@
     NSURL *url = [NSURL URLWithString:self.picture];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-    NSString *hash = [NSString stringWithFormat:@"%016x", [self.picture hash]];
+    NSString *hash = [NSString stringWithFormat:@"%016lx", (unsigned long)[self.picture hash]];
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:hash];
     
     // check whether we have a cached version of the image we can return straight away
@@ -53,25 +51,25 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion();
         });
-        return; // we could disable this to perform the check for updated images
     }
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:_queue completionHandler: ^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-         if(data) {
-             // save it to the cache directory
-             NSError *err = nil;
-             if(![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
-                 NSLog(@"couldn't write image to cache at '%@': %@", path, err);
+    else {
+        [NSURLConnection sendAsynchronousRequest:request queue:_queue completionHandler: ^(NSURLResponse *response, NSData *data, NSError *connectionError)
+         {
+             if(data) {
+                 // save it to the cache directory
+                 NSError *err = nil;
+                 if(![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
+                     NSLog(@"couldn't write image to cache at '%@': %@", path, err);
+                 }
+                 
+                 self.pictureImage = [UIImage imageWithData: data];
              }
              
-             self.pictureImage = [UIImage imageWithData: data];
-         }
-         
-         dispatch_async(dispatch_get_main_queue(), ^{
-             completion();
-         });
-     }];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 completion();
+             });
+         }];
+    }
 }
 
 @end

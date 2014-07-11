@@ -16,9 +16,7 @@ DESIGN DECISIONS
 * Caches images to file and checks cache before attempting download.
 * Images fetched asynchronously.
 * Data fetched asynchronously.
+* Grey image background to give the tableview and the details view a cleaner look.
 
 IMPROVEMENTS
-* Handling of different sized pictures could be improved.
-  - tableview looks very irregular.
-  - details view looks poorly arranged for wide pictures.
 * testFetchDataWithCompletionHandler() is not a true unit test as it can be broken by changing the online Data.xml source file.
