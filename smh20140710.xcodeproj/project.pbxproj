@@ -50,7 +50,7 @@
 		A422ECDD196E9D5C00991717 /* four_contacts.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = four_contacts.xml; sourceTree = "<group>"; };
 		A422ECE2196ED7DB00991717 /* SMHContactDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMHContactDetailsVC.h; sourceTree = "<group>"; };
 		A422ECE3196ED7DB00991717 /* SMHContactDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMHContactDetailsVC.m; sourceTree = "<group>"; };
-		A42E47B2196D9E8900787C52 /* smh20140710.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smh20140710.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42E47B2196D9E8900787C52 /* Monitise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monitise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42E47B5196D9E8900787C52 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A42E47B7196D9E8900787C52 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A42E47B9196D9E8900787C52 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -120,7 +120,7 @@
 		A42E47B3196D9E8900787C52 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A42E47B2196D9E8900787C52 /* smh20140710.app */,
+				A42E47B2196D9E8900787C52 /* Monitise.app */,
 				A42E47D2196D9E8900787C52 /* smh20140710Tests.xctest */,
 			);
 			name = Products;
@@ -242,7 +242,7 @@
 			);
 			name = smh20140710;
 			productName = smh20140710;
-			productReference = A42E47B2196D9E8900787C52 /* smh20140710.app */;
+			productReference = A42E47B2196D9E8900787C52 /* Monitise.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A42E47D1196D9E8900787C52 /* smh20140710Tests */ = {
@@ -455,7 +455,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "smh20140710/smh20140710-Prefix.pch";
 				INFOPLIST_FILE = "smh20140710/smh20140710-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Monitise;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -468,7 +468,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "smh20140710/smh20140710-Prefix.pch";
 				INFOPLIST_FILE = "smh20140710/smh20140710-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Monitise;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
