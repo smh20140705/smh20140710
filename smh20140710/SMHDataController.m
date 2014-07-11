@@ -116,24 +116,6 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         _workingString = nil;
         _currentContact = [NSEntityDescription insertNewObjectForEntityForName:@"SMHContacts"inManagedObjectContext:_backgroundContext];
     }
-    else if ([elementName isEqualToString:@"firstName"]) {
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"lastName"]) {
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"age"]) {
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"sex"]) {
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"picture"]) {
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"notes"]) {
-        _workingString = nil;
-    }
     else {
         _workingString = nil;
     }
@@ -163,31 +145,8 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
         _currentContact = nil;
         _workingString = nil;
     }
-    else if ([elementName isEqualToString:@"firstName"]) {
-        _currentContact.firstName = _workingString;
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"lastName"]) {
-        _currentContact.lastName = _workingString;
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"age"]) {
-        _currentContact.age = [[NSNumberFormatter alloc] numberFromString:_workingString];
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"sex"]) {
-        _currentContact.sex = _workingString;
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"picture"]) {
-        _currentContact.pictureURL = _workingString;
-        _workingString = nil;
-    }
-    else if ([elementName isEqualToString:@"notes"]) {
-        _currentContact.notes = _workingString;
-        _workingString = nil;
-    }
     else {
+        [_currentContact setValue:_workingString forKey:elementName];
         _workingString = nil;
     }
 }

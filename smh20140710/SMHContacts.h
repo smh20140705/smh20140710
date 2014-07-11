@@ -14,12 +14,12 @@
 
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
-@property (nonatomic, retain) NSNumber * age;
+@property (nonatomic, retain) NSString * age;
 @property (nonatomic, retain) NSString * sex;
-@property (nonatomic, retain) NSString * pictureURL;
+@property (nonatomic, retain) NSString * picture;
 @property (nonatomic, retain) NSString * notes;
 
-@property (nonatomic, strong) UIImage * picture;
+@property (nonatomic, strong) UIImage * pictureImage;
 
 - (void)fetchImageWithCompletionHandler:(void(^)())completion;
 

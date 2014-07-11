@@ -35,9 +35,11 @@
     
     NSAssert(contact, @"No contact data");
     self.navigationItem.title = [NSString stringWithFormat:@"%@ %@", contact.firstName, contact.lastName];
-    contactPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];
-    if (contact.picture) {
-        contactPicture.image = contact.picture;
+    if (contact.pictureImage) {
+        contactPicture.image = contact.pictureImage;
+    }
+    else {
+        contactPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];
     }
     contactNotes.text = contact.notes;
 }

@@ -62,9 +62,9 @@
         }
         
         {
-            NSNumber *expectedAge = @56;
-            NSNumber *actualAge = tempContact.age;
-            XCTAssert([actualAge isEqualToNumber:expectedAge],
+            NSString *expectedAge = @"56";
+            NSString *actualAge = tempContact.age;
+            XCTAssert([actualAge isEqualToString:expectedAge],
                       @"Incorrect contact age: expected: %@; got:%@",
                       expectedAge, actualAge);
         }
@@ -79,7 +79,7 @@
         
         {
             NSString *expectedPicture = @"http://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg";
-            NSString *actualPicture = tempContact.pictureURL;
+            NSString *actualPicture = tempContact.picture;
             XCTAssert([actualPicture isEqualToString:expectedPicture],
                       @"Incorrect contact picture: expected: %@; got:%@",
                       expectedPicture, actualPicture);
@@ -139,9 +139,9 @@
     }
     
     {
-        NSNumber *expectedAge = @56;
-        NSNumber *actualAge = tempContact.age;
-        XCTAssert([actualAge isEqualToNumber:expectedAge],
+        NSString *expectedAge = @"56";
+        NSString *actualAge = tempContact.age;
+        XCTAssert([actualAge isEqualToString:expectedAge],
                   @"Incorrect contact age: expected: %@; got:%@",
                   expectedAge, actualAge);
     }
@@ -156,7 +156,7 @@
     
     {
         NSString *expectedPicture = @"http://upload.wikimedia.org/wikipedia/commons/b/b9/Steve_Jobs_Headshot_2010-CROP.jpg";
-        NSString *actualPicture = tempContact.pictureURL;
+        NSString *actualPicture = tempContact.picture;
         XCTAssert([actualPicture isEqualToString:expectedPicture],
                   @"Incorrect contact picture: expected: %@; got:%@",
                   expectedPicture, actualPicture);
@@ -205,9 +205,9 @@
     }
     
     {
-        NSNumber *expectedAge = @61;
-        NSNumber *actualAge = tempContact.age;
-        XCTAssert([actualAge isEqualToNumber:expectedAge],
+        NSString *expectedAge = @"61";
+        NSString *actualAge = tempContact.age;
+        XCTAssert([actualAge isEqualToString:expectedAge],
                   @"Incorrect contact age: expected: %@; got:%@",
                   expectedAge, actualAge);
     }
@@ -222,7 +222,7 @@
     
     {
         NSString *expectedPicture = @"http://upload.wikimedia.org/wikipedia/commons/f/f6/Steve_Wozniak.jpg";
-        NSString *actualPicture = tempContact.pictureURL;
+        NSString *actualPicture = tempContact.picture;
         XCTAssert([actualPicture isEqualToString:expectedPicture],
                   @"Incorrect contact picture: expected: %@; got:%@",
                   expectedPicture, actualPicture);

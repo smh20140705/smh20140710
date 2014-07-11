@@ -104,17 +104,18 @@
     // Basic cell setup w. placeholder image
     cell.lblFirstName.text = tempContact.firstName;
     cell.lblLastName.text = [tempContact.lastName uppercaseString];
-    cell.lblAge.text = [tempContact.age stringValue];
+    cell.lblAge.text = tempContact.age;
     cell.lblSex.text = tempContact.sex;
     cell.imgPicture.image = [UIImage imageNamed:@"SMHContactPlaceholder"];
     
     // Get the actual image if possible
-    if (tempContact.picture) {
-        cell.imgPicture.image = tempContact.picture;
+    if (tempContact.pictureImage) {
+        cell.imgPicture.image = tempContact.pictureImage;
     }
     else {
+        __weak SMHContactsTVC *wself = self;
         [tempContact fetchImageWithCompletionHandler: ^{
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [wself.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         }];
     }
     

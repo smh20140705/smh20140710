@@ -21,10 +21,10 @@
 @dynamic lastName;
 @dynamic age;
 @dynamic sex;
-@dynamic pictureURL;
+@dynamic picture;
 @dynamic notes;
 
-@synthesize picture;
+@synthesize pictureImage;
 
 - (id)initWithEntity:(NSEntityDescription *)entity insertIntoManagedObjectContext:(NSManagedObjectContext *)context
 {
@@ -39,19 +39,37 @@
 
 - (void)fetchImageWithCompletionHandler:(void (^)())completion
 {
+    NSString *hash = [NSString stringWithFormat:@"%016x", [self.picture hash]];
+    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:hash];
+    
+    // check whether we have a cached version of the image we can return straight away
+    NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:NULL];
+    if (data && (self.pictureImage = [UIImage imageWithData:data])) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(self.pictureImage, self.picture, nil);
+        });
+        return; // we could disable this to perform the check for updated images
+    }
+    
     @synchronized(self) {
         if (!runOnce) {
             runOnce = YES;
+            __weak SMHContacts *wself = self;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                NSURL *reqURL = [NSURL URLWithString:self.pictureURL];
+                NSURL *reqURL = [NSURL URLWithString:wself.picture];
                 NSURLRequest *request = [NSURLRequest requestWithURL:reqURL];
                 NSHTTPURLResponse *response;
                 NSError *error;
                 NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
                 
                 if (data && !error) {
-                    self.picture = [UIImage imageWithData:data];
+                    // save it to the cache directory
+//                    NSError *err = nil;
+//                    if (![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
+//                        NSLog(@"couldn't write image to cache at '%@': %@", path, err);
+//                    }
+                    wself.pictureImage = [UIImage imageWithData:data];
                 }
                 
                 dispatch_sync(dispatch_get_main_queue(), ^{
