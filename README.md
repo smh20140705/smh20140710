@@ -12,6 +12,8 @@ SPEC CLARIFICATIONS
 DESIGN DECISIONS
 * The sex of each contact is taken as a string in order to avoid having to consider in advance all of the various forms this might be specified: e.g. "m", "M", "male", "man", "boy", ... perhaps even "fellow", "fella", "geezer", etc, etc.
 * Uses core data so that the app is able to display previous data if no connection is available.
+* Uses KVC for parsing so core data attribute names correspond to xml elements names.
+* Caches images to file and checks cache before attempting download.
 
 IMPROVEMENTS
 * Handling of different sized pictures could be improved.

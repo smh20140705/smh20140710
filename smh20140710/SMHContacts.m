@@ -65,10 +65,10 @@
                 
                 if (data && !error) {
                     // save it to the cache directory
-//                    NSError *err = nil;
-//                    if (![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
-//                        NSLog(@"couldn't write image to cache at '%@': %@", path, err);
-//                    }
+                    NSError *err = nil;
+                    if (![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
+                        NSLog(@"couldn't write image to cache at '%@': %@", path, err);
+                    }
                     wself.pictureImage = [UIImage imageWithData:data];
                 }
                 
