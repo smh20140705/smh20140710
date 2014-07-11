@@ -52,15 +52,10 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
 
 - (void)fetchDataWithCompletionHandler:(void(^)(NSArray*))completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self fetchOnlineData];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion([_result copy]);
-        });
-    });
+    [self fetchOnlineDataWithCompletionHandler:completion];
 }
 
-- (void)fetchOnlineData
+- (void)fetchOnlineDataWithCompletionHandler:(void(^)(NSArray*))completion
 {
     NSURL *reqURL = [NSURL URLWithString:SourceURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:reqURL];
@@ -77,23 +72,26 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
                  NSLog(@"couldn't write data to cache at '%@': %@", path, err);
              }
              
-//             {
-//                 NSError *error = nil;
-//                 NSFetchRequest *requestAll = [[NSFetchRequest alloc] init];
-//                 [requestAll setEntity:[NSEntityDescription entityForName:@"SMHContacts" inManagedObjectContext:_backgroundContext]];
-//                 [requestAll setIncludesPropertyValues:NO];
-//                 error = nil;
-//                 NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll error:&error];
-//                 if (!error) {
-//                     for (SMHContacts *contact in allItems) {
-//                         [_backgroundContext deleteObject:contact];
-//                     }
-//                 }
-//             }
+             {
+                 NSError *error = nil;
+                 NSFetchRequest *requestAll = [[NSFetchRequest alloc] init];
+                 [requestAll setEntity:[NSEntityDescription entityForName:@"SMHContacts" inManagedObjectContext:_backgroundContext]];
+                 [requestAll setIncludesPropertyValues:NO];
+                 error = nil;
+                 NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll error:&error];
+                 if (!error) {
+                     for (SMHContacts *contact in allItems) {
+                         [_backgroundContext deleteObject:contact];
+                     }
+                 }
+             }
              
              [self parseData:data];
          }
-    }];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             completion([_result copy]);
+         });
+     }];
 }
 
 - (void)fetchLocalData
