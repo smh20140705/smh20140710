@@ -15,6 +15,7 @@ DESIGN DECISIONS
 * Uses KVC for parsing so core data attribute names correspond to xml elements names.
 * Caches images to file and checks cache before attempting download.
 * Images fetched asynchronously.
+* Data fetched asynchronously.
 
 IMPROVEMENTS
 * Handling of different sized pictures could be improved.

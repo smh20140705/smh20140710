@@ -56,34 +56,6 @@
         return; // we could disable this to perform the check for updated images
     }
     
-//    @synchronized(self) {
-//        if (!runOnce) {
-//            runOnce = YES;
-//            __weak SMHContacts *wself = self;
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                
-//                NSURL *reqURL = [NSURL URLWithString:wself.picture];
-//                NSURLRequest *request = [NSURLRequest requestWithURL:reqURL];
-//                NSHTTPURLResponse *response;
-//                NSError *error;
-//                NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-//                
-//                if (data && !error) {
-//                    // save it to the cache directory
-//                    NSError *err = nil;
-//                    if (![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
-//                        NSLog(@"couldn't write image to cache at '%@': %@", path, err);
-//                    }
-//                    wself.pictureImage = [UIImage imageWithData:data];
-//                }
-//                
-//                dispatch_sync(dispatch_get_main_queue(), ^{
-//                    completion();
-//                });
-//            });
-//        }
-//    }
-    
     [NSURLConnection sendAsynchronousRequest:request queue:_queue completionHandler: ^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
          if(data) {

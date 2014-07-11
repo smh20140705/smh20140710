@@ -14,6 +14,8 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
 
 @interface SMHDataController () <NSXMLParserDelegate>
 {
+    NSOperationQueue *_queue;
+    
     NSMutableArray *_result;
     SMHContacts *_currentContact;
     NSManagedObjectContext *_backgroundContext;
@@ -40,6 +42,7 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
 {
     self = [super init];
     if (self) {
+        _queue = [NSOperationQueue new];
         NSManagedObjectContext *context = [(SMHAppDelegate *)[UIApplication sharedApplication].delegate managedObjectContext];
         _backgroundContext = [[NSManagedObjectContext alloc] init];
         [_backgroundContext setPersistentStoreCoordinator:[context persistentStoreCoordinator]];
@@ -59,29 +62,38 @@ NSString *const SourceURL = @"http://demo.monitise.net/download/tests/Data.xml";
 
 - (void)fetchOnlineData
 {
-    _result = [[NSMutableArray alloc] init];
     NSURL *reqURL = [NSURL URLWithString:SourceURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:reqURL];
-    NSHTTPURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if (data && !error) {
-        NSFetchRequest *requestAll = [[NSFetchRequest alloc] init];
-        [requestAll setEntity:[NSEntityDescription entityForName:@"SMHContacts" inManagedObjectContext:_backgroundContext]];
-        [requestAll setIncludesPropertyValues:NO];
-        error = nil;
-        NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll error:&error];
-        if (!error) {
-            for (SMHContacts *contact in allItems) {
-                [_backgroundContext deleteObject:contact];
-            }
-        }
-        [self parseData:data];
-    }
-    else {
-        [self fetchLocalData];
-    }
+    [NSURLConnection sendAsynchronousRequest:request queue:_queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         if (!data) {
+             [self fetchLocalData];
+         }
+         else {
+             // save it to the cache directory
+             NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent: @"data"];
+             NSError *err = nil;
+             if (![data writeToFile:path options:NSDataWritingAtomic error:&err]) {
+                 NSLog(@"couldn't write data to cache at '%@': %@", path, err);
+             }
+             
+//             {
+//                 NSError *error = nil;
+//                 NSFetchRequest *requestAll = [[NSFetchRequest alloc] init];
+//                 [requestAll setEntity:[NSEntityDescription entityForName:@"SMHContacts" inManagedObjectContext:_backgroundContext]];
+//                 [requestAll setIncludesPropertyValues:NO];
+//                 error = nil;
+//                 NSArray *allItems = [_backgroundContext executeFetchRequest:requestAll error:&error];
+//                 if (!error) {
+//                     for (SMHContacts *contact in allItems) {
+//                         [_backgroundContext deleteObject:contact];
+//                     }
+//                 }
+//             }
+             
+             [self parseData:data];
+         }
+    }];
 }
 
 - (void)fetchLocalData
